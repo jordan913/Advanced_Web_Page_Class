@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research</title>
+
+    <!--Insert Bootstrap CSS here-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Insert Bootstrap icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Our own styles -->
+    <style>
+        /*Use CSS Variable*/
+        :root {
+            --navbar-color: #DAF7A6;
+            --showcase-color: #000000;
+            --bio-color: #FFC300;
+            --webtech-color: #EC7063;
+            --competence-color: #cdeb8b;
+            --statement-color: #F27A09;
+            --inner-color: #b1e2e7;
+        }
+        footer {
+        min-height: 10vh;
+        background-color: var(--navbar-color);
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+    }
+
+    footer .social-media {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    footer .social-media a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @media (min-width: 768px) {
+        footer {
+            grid-template-columns: 1fr auto 1fr;
+            text-align: initial;
+        }
+
+        footer .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        footer .social-media {
+            justify-content: flex-start;
+        }
+
+        footer .center-text {
+            text-align: center;
+        }
+
+        footer .privacy-policy {
+            text-align: right;
+        }
+    }
+/* Font consistency */
+.flip-box {
+  font-family: 'Arial', sans-serif; /* Use Arial or any preferred font */
+}
+
+.flip-box h5, .flip-box p {
+  font-size: 16px; /* Adjust as needed */
+  font-weight: normal; /* Make the font weight consistent */
+  text-align: center; /* Center align text */
+  color: #333; /* Set text color */
+}
+
+/* Existing flip box styles */
+.flip-box {
+  perspective: 1000px;
+  width: 100%; /* Adjust as needed */
+  height: 350px; /* Define a fixed height for the entire flip box */
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;  /* Ensure the front and back fill the entire flip box */
+  backface-visibility: hidden;
+  overflow-y: hidden; /* Hide overflow for front and back to prevent unwanted scrolling */
+}
+
+.flip-box-back {
+  transform: rotateY(180deg);
+}
+
+.flip-box-back .flip-box-content {
+  height: 100%;
+  overflow-y: auto; /* Add scroll within the content area only */
+  padding: 10px; /* Optional padding for better content layout */
+  transform: rotate(180deg); /* Rotate the content upside down */
+}
+
+.flip-box img {
+  max-height: 150px; /* Adjust the image height so it fits within the box */
+  width: 70%;
+  margin-top: 10px;
+}
+
+
+.border-warning {
+  border-color: #f8c471 !important;
+}
+
+
+    </style>
+</head>
+
+
+<body>
+    <!-- Add search area containing search box and search button-->
+    <div class="collapse" id="collapseSearchBox">
+        <form>
+            <input type="search" class="col-lg-11">
+            <button class="btn btn-outline-success" type="submit">SEARCH...</button>
+        </form>
+    </div>
+
+    <!--Navbar area-->
+    <!--Website: getboostrap.com -> components -> Navbar: https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg" style="height: 10vh; background-color: var(--navbar-color); z-index: 1050; position: relative;">
+    <div class="container-fluid">
+        <!--Tagline-->
+        <a class="navbar-brand" href="#">
+            <span class="fs-2 bi bi-globe"></span>
+            ITWD6.408</a>
+
+        <!-- Insert search icon button - ONLY SHOW ON SMALL DEVICE AND HIDDEN IN BIG DEVICE -->
+        <button class="btn d-inline d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSearchBox">
+            <span class="fs-2 bi bi-search"></span>
+        </button>
+
+        <!--Button: text on it is a sandwich icon-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Collapse navbar-->
+        <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                <a class="nav-link" href="form.html">FORMS</a>
+                <a class="nav-link" href="xml-rss.html">XML/RSS</a>
+                <a class="nav-link" href="Javascript.html">JAVASCRIPT</a>
+                <a class="nav-link" href="Research.html">RESEARCH</a>
+            </div>
+        </div>
+
+        <!-- Insert search icon button - ONLY SHOW ON BIG DEVICE AND HIDDEN IN small DEVICE -->
+        <button class="btn d-none d-lg-inline" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSearchBox">
+            <span class="fs-2 bi bi-search"></span>
+        </button>
+
+    </div>
+</nav>
+
+    <!--Main area-->
+    <main>
+        <section style="min-height: 20vh; margin-top: 25px; ">
+            <!--create 3 collums-->
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="flip-box border border-warning border-3">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front" style="background-color: #fff2cd">
+                                <h5>Copyright, Creative Common (CC) Licenses, Fair Use</h5>
+                                <img src="images/research-copyright.jpg">
+                            </div>
+                            <div class="flip-box-back text-center text-white" style="background-color: #ff8000">
+                            <div class="flip-box-content">
+                                <p>[1] Intellectual Property Office of New Zealand (IPONZ) - Copyright
+                                    URL: iponz.govt.nz
+                                    
+                                    Copyright is a type of intellectual property (IP) that protects original works of authorship, such as literature, music, art, and software.<br>
+                                    Protection occurs automatically once the work is created and does not require registration.<br>
+                                    Rights of the copyright holder: The owner has exclusive rights to copy, distribute, perform, or modify the work.<br>
+                                    Duration: Copyright typically lasts for the life of the creator plus 50 years in New Zealand.<br>
+                                    Exceptions: Certain uses like educational purposes, research, and parody may fall under fair dealing provisions.<br>
+                                    [2] Creative Commons Licenses,<br>
+                                    URL: creativecommons.org<br>
+                                    
+                                    Creative Commons (CC) provides a set of free licenses that enable creators to share their works under flexible conditions.<br>
+                                    Types of licenses: There are six main types, ranging from CC BY (least restrictive, requiring only attribution) to CC BY-NC-ND (which restricts commercial use and derivatives).<br>
+                                    Key elements of the licenses:<br>
+                                    BY (Attribution): Credit must be given to the creator.<br>
+                                    NC (Non-Commercial): Works cannot be used for commercial purposes.<br>
+                                    ND (No Derivatives): Works cannot be altered or remixed.<br>
+                                    SA (Share Alike): Derivative works must carry the same license as the original.<br>
+                                    [3] Data Privacy and Security - New Zealand Data Privacy Guidelines<br>
+                                    URL: data.govt.nz<br>
+                                    
+                                    Data privacy involves protecting personal information from unauthorized access and misuse.<br>
+                                    Key principles: The Privacy Act 2020 governs how personal data is collected, stored, and shared in New Zealand.<br>
+                                    Rights of individuals: Individuals have the right to access and correct their personal information.<br>
+                                    Best practices for data privacy:<br>
+                                    Minimize data collection to only what is necessary.<br>
+                                    Ensure strong security measures for storing and transmitting data.<br>
+                                    Be transparent with individuals about how their data will be used.</p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="flip-box border-warning border-3">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front" style="background-color: #fff2cd">
+                                <h3>Privacy & Web Privacy Policy</h3>
+                                <img src="images/privacy policy.jpg">
+                            </div>
+                            <div class="flip-box-back text-center text-white" style="background-color: #ff8000">
+                                <div class="flip-box-content">
+                                <p>[1] IPONZ - Fair Use (Fair Dealing) under New Zealand Copyright Law<br>
+                                    URL: iponz.govt.nz<br>
+                                    
+                                    In New Zealand, fair dealing is a provision similar to fair use in other countries, allowing limited use of copyrighted works without permission.<br>
+                                    Permissible uses include:<br>
+                                    Research or private study: Using portions of a work for personal or academic purposes.<br>
+                                    Criticism, review, or news reporting: Using parts of copyrighted material for critique or news.<br>
+                                    Educational purposes: Limited copying for teaching or study in educational institutions.<br>
+                                    Fair dealing has limitations, and the usage must not negatively impact the copyright holder’s ability to exploit the work commercially.<br>
+                                    [2] Creative Commons - Fair Use within Creative Commons Licensing<br>
+                                    URL: creativecommons.org<br>
+                                    
+                                    Creative Commons (CC) licenses offer an alternative to traditional copyright, allowing creators to set flexible usage terms for their work.<br>
+                                    Fair use still applies under CC licenses, meaning users may utilize content without explicit permission if it falls under fair use exceptions, such as:<br>
+                                    Quotations for criticism or review.<br>
+                                    Parody or satire.<br>
+                                    Educational use within the boundaries of the license.<br>
+                                    Creative Commons licenses facilitate sharing and reuse of creative content but do not override existing fair use rights in copyright law.<br>
+                                    [3] Data Privacy - New Zealand Privacy Act 2020<br>
+                                    URL: data.govt.nz<br>
+                                    
+                                    Privacy refers to the right of individuals to control the collection, use, and sharing of their personal information.<br>
+                                    Key principles from the Privacy Act 2020:<br>
+                                    Transparency: Organizations must inform individuals about why and how their personal data is collected and used.<br>
+                                    Data minimization: Only collect data that is necessary for the purpose at hand.<br>
+                                    Access and correction: Individuals have the right to access their personal information and request corrections.<br>
+                                    Security: Personal data must be stored securely to prevent unauthorized access or breaches.<br>
+                                    Consequences for breaching privacy laws can include penalties, legal action, and damage to an organization’s reputation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="flip-box border-warning border-3">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front" style="background-color: #fff2cd">
+                                <h3>How to Improve Your Website SEO</h3>
+                                <img src="images/SEO image.jpg">
+                            </div>
+                            <div class="flip-box-back text-center text-white" style="background-color: #ff8000">
+                                <div class="flip-box-content">
+                                <p>[1] Moz - Beginner’s Guide to SEO<br>
+                                    URL: moz.com<br>
+                                    
+                                    SEO (Search Engine Optimization) refers to practices aimed at improving a website’s visibility on search engine result pages (SERPs).<br>
+                                    Key components of SEO:<br>
+                                    On-page SEO: Optimizing individual web pages by focusing on keyword usage, content quality, and HTML tags.<br>
+                                    Off-page SEO: Building a website’s reputation through backlinks and external references from trusted sites.<br>
+                                    Technical SEO: Ensuring a site’s backend infrastructure (site speed, mobile-friendliness, security, etc.) enhances search engine crawling and indexing.<br>
+                                    Keywords: Critical for matching user intent to search engine results. Tools like keyword research help identify terms users are searching for.<br>
+                                    [2] WordStream - SEO Strategy<br>
+                                    URL: wordstream.com<br>
+                                    
+                                    A successful SEO strategy involves improving both the user experience and search engine visibility.<br>
+                                    Core elements of an SEO strategy:<br>
+                                    Content creation: High-quality, relevant content that answers users’ questions.<br>
+                                    Keyword optimization: Using keywords naturally in content, titles, and metadata.<br>
+                                    Mobile optimization: Ensuring the website is responsive and functions well on mobile devices, a significant factor in Google’s ranking.<br>
+                                    Link-building: Securing links from high-authority websites to improve credibility and rankings.<br>
+                                    SEO metrics to track: organic traffic, keyword rankings, and conversion rates.<br>
+                                    [3] TutorialsPoint - SEO Guide<br>
+                                    URL: tutorialspoint.com<br>
+                                    
+                                    SEO focuses on making websites easily discoverable by search engines and improving rankings for relevant searches.<br>
+                                    SEO Techniques:<br>
+                                    White Hat SEO: Ethical methods that follow search engine guidelines, such as quality content creation and proper keyword usage.<br>
+                                    Black Hat SEO: Practices like keyword stuffing or hidden links, which can result in penalties from search engines.<br>
+                                    Key SEO Practices:<br>
+                                    Site structure: A well-organized site with a logical hierarchy improves crawlability by search engines.<br>
+                                    Meta tags: Meta descriptions and title tags are essential for helping search engines and users understand the content of your pages.<br>
+                                    Analytics: Track performance using tools like Google Analytics to monitor traffic, user behavior, and other SEO-related metrics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="flip-box border border-warning border-3">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front" style="background-color: #fff2cd">
+                                <h4>Factors you should know when choosing a right web hosting provider</h4>
+                                <img src="images/web hosting.jpg">
+                            </div>
+                            <div class="flip-box-back text-center text-white" style="background-color: #ff8000">
+                                <div class="flip-box-content">
+                                <p>[1] KnownHost - Web Hosting Explained for Beginners<br>
+                                    URL: knownhost.com<br>
+                                    
+                                    Web hosting is the service of storing website files and making them accessible on the internet.<br>
+                                    Types of web hosting:<br>
+                                    Shared Hosting: Multiple websites share server resources, making it affordable but potentially slower during high traffic.<br>
+                                    VPS Hosting: Virtual Private Server offers dedicated resources in a shared environment, providing more control and better performance.<br>
+                                    Dedicated Hosting: A server exclusively for one website, ideal for high-traffic or resource-heavy sites.<br>
+                                    Cloud Hosting: Uses a network of virtual servers to host a website, offering scalability and reliability.<br>
+                                    Hosting companies often provide additional services like domain registration, SSL certificates, and website backups.<br>
+                                    [2] TutorialsPoint - Website Publishing<br>
+                                    URL: tutorialspoint.com<br>
+                                    
+                                    Website publishing is the process of making a website accessible on the internet, typically done after designing and developing the site.<br>
+                                    Steps in web publishing:<br>
+                                    Domain registration: Purchase and register a domain name to serve as the website's address (e.g., www.example.com).<br>
+                                    Choosing a web host: Select a web hosting provider that fits your site's needs (shared, VPS, dedicated, etc.).<br>
+                                    Uploading files: Use FTP (File Transfer Protocol) or a web hosting platform's file manager to upload website files to the server.<br>
+                                    DNS configuration: Point the domain name to the web hosting server using DNS (Domain Name System) settings, making the site accessible via the domain.<br>
+                                    Popular content management systems (CMS) like WordPress simplify publishing by providing easy-to-use interfaces.<br>
+                                    [3] GeeksforGeeks - Difference Between Web Hosting and Web Publishing<br>
+                                    URL: geeksforgeeks.org<br>
+                                    
+                                    Web hosting refers to the service of providing storage and access for website files on a server. It is essential for making a site live on the internet.<br>
+                                    Web publishing, on the other hand, is the process of creating and uploading website content to the internet via a web host.<br>
+                                    Key differences:<br>
+                                    Web hosting involves providing server space and related infrastructure.<br>
+                                    Web publishing involves managing content, design, and ensuring the site is updated regularly.<br>
+                                    In summary, web hosting is the technical side (servers, domains, bandwidth), while web publishing focuses on the content and presentation of the website.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="flip-box border-warning border-3">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front" style="background-color: #fff2cd">
+                                <h3>Web Performance and Maintenance</h3>
+                                <img src="images/web performance and maintenace.jpg">
+                            </div>
+                            <div class="flip-box-back text-center text-white" style="background-color: #ff8000">
+                            <div class="flip-box-content">
+                                <p>E[1] MDN Web Docs - What is Web Performance?<br>
+                                    URL: developer.mozilla.org<br>
+                                    
+                                    Web performance refers to how quickly web pages load and respond to user interactions.<br>
+                                    Key factors affecting web performance:<br>
+                                    Page load time: The time it takes for a web page to fully load and be usable.<br>
+                                    Rendering performance: How quickly the browser can display content, affected by HTML, CSS, and JavaScript.<br>
+                                    Network latency: The delay caused by slow internet connections or inefficient server communication.<br>
+                                    Best practices:<br>
+                                    Optimizing images by compressing them without sacrificing quality.<br>
+                                    Minimizing JavaScript and CSS to reduce the size of files that need to be loaded.<br>
+                                    Caching: Storing parts of the website on the user’s browser to reduce loading times for repeat visits.<br>
+                                    [2] HubSpot - Website Performance<br>
+                                    URL: hubspot.com<br>
+                                    
+                                    Website performance is critical for user experience, search engine rankings, and conversion rates.<br>
+                                    Metrics to track for performance:<br>
+                                    Page speed: Slow-loading sites lead to higher bounce rates and lower search engine rankings.<br>
+                                    Time to First Byte (TTFB): Measures how quickly a server responds after the browser requests a page.<br>
+                                    Mobile optimization: Ensuring your website performs well on mobile devices is crucial for retaining mobile traffic.<br>
+                                    Improvement techniques:<br>
+                                    Content Delivery Networks (CDNs): Distribute your website content across multiple servers globally to reduce load times.<br>
+                                    Browser caching: Enables returning users to load the site faster by using stored resources.<br>
+                                    Reduce HTTP requests: Minimizing the number of files a browser needs to load can drastically improve page speed.<br>
+                                    [3] HostGator - Website Maintenance Guide<br>
+                                    URL: hostgator.com<br>
+                                    
+                                    Website maintenance involves regularly checking and updating your website to ensure it runs smoothly and securely.<br>
+                                    Key maintenance tasks:<br>
+                                    Software updates: Regularly update content management systems (CMS), plugins, and themes to prevent security vulnerabilities.<br>
+                                    Backup your website: Create regular backups of your website to prevent data loss in case of server issues or cyberattacks.<br>
+                                    Check for broken links: Ensure that all links on the website are working properly to prevent frustrating user experiences.<br>
+                                    Monitor security: Use security tools to protect against malware, hacks, and unauthorized access.<br>
+                                    SEO maintenance: Periodically update website content and metadata to align with SEO best practices and improve search rankings.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="flip-box border-warning border-3">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front" style="background-color: #fff2cd">
+                                <h2>Web Security</h2>
+                                <img src="images/cyber security.jpg">
+                            </div>
+                            <div class="flip-box-back text-center text-white" style="background-color: #ff8000">
+                                <div class="flip-box-content">
+                                <p>[1] IBM - Cyber Attacks Overview<br>
+                                    URL: ibm.com<br>
+                                    
+                                    Cyber attacks are deliberate attempts to exploit or damage computer systems, networks, or data.<br>
+                                    Types of cyber attacks:<br>
+                                    Phishing: Deceptive emails or messages that trick users into providing sensitive information.<br>
+                                    Malware: Malicious software designed to disrupt, damage, or gain unauthorized access to systems.<br>
+                                    Ransomware: A form of malware that locks users out of their data and demands payment for restoration.<br>
+                                    DDoS (Distributed Denial of Service): Attackers overwhelm a website’s server with traffic, making it unavailable to users.<br>
+                                    Prevention: Employing strong cybersecurity practices such as firewalls, encryption, and user education to defend against cyber threats.<br>
+                                    [2] Hackmageddon - Cyber Attacks Statistics<br>
+                                    URL: hackmageddon.com<br>
+                                    
+                                    Cyber attacks are growing both in frequency and sophistication, with attackers targeting individuals, businesses, and governments.<br>
+                                    Statistical trends:<br>
+                                    A significant rise in ransomware attacks, targeting sectors such as healthcare, finance, and education.<br>
+                                    Phishing remains one of the most common and successful attack vectors, often targeting users through email and social media.<br>
+                                    DDoS attacks have become more common, disrupting services by flooding servers with fake traffic.<br>
+                                    Key insight: Monitoring attack trends and learning from past incidents is crucial for improving web security defenses and risk management.<br>
+                                    [3] Simplilearn - Types of Cyber Attacks<br>
+                                    URL: simplilearn.com<br>
+                                    
+                                    Types of cyber attacks:<br>
+                                    SQL Injection: Attackers insert malicious SQL code to manipulate and access databases.<br>
+                                    Man-in-the-Middle (MitM) Attack: Hackers intercept communication between two parties to steal sensitive information.<br>
+                                    Zero-Day Attack: An attack that exploits an unknown vulnerability in software, often before the developer can issue a patch.<br>
+                                    Cross-Site Scripting (XSS): Injecting malicious scripts into websites to target users’ browsers and gain unauthorized access to information.<br>
+                                    Best practices for prevention:<br>
+                                    Regularly update software and apply security patches.<br>
+                                    Use strong, unique passwords and enable multi-factor authentication (MFA).<br>
+                                    Monitor network traffic for suspicious activity and set up firewalls and intrusion detection systems.<br>
+                                    [4] CERT NZ - Cyber Security Guide<br>
+                                    URL: cert.govt.nz<br>
+                                    
+                                    Basic cyber security measures for individuals and small businesses:<br>
+                                    Use strong passwords: Ensure that passwords are long, unique, and use a combination of letters, numbers, and symbols.<br>
+                                    Enable two-factor authentication (2FA): Adding an extra layer of security that requires users to provide two forms of identification.<br>
+                                    Keep software updated: Regularly update operating systems, browsers, and applications to protect against known vulnerabilities.<br>
+                                    Backup data regularly: Store important data in multiple locations, including secure cloud storage and physical devices.<br>
+                                    Be cautious with emails: Avoid opening attachments or clicking links in suspicious emails to prevent phishing attacks.<br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--Footer area-->
+    <footer style="min-height: 10vh; background-color: var(--navbar-color);" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex justify-content-between align-items-center w-100 mb-2">
+            <!-- Insert social media icons: facebook, linkedin, instagram -->
+            <div class="d-flex align-items-center">
+                <a href="https://www.eit.ac.nz/" class="text-primary"><span class="fs-1 bi bi-facebook"></span></a>
+                <a href="https://www.eit.ac.nz/" class="ms-2"><span class="fs-1 bi bi-linkedin"></span></a>
+                <a href="https://www.eit.ac.nz/" class="ms-2"><span class="fs-1 bi bi-instagram"></span></a>
+            </div>
+            <div class="text-center mx-3">@2024 JORDAN TURNER</div>
+            <div class="text-end ms-3 fw-bold text-primary">
+                <a href="policy.html" class="text-end ms-3 fw-bold text-primary btn btn-link" style="text-decoration: none;">PRIVACY POLICY</a>
+            </div>
+        </div>
+    </footer>
+    <!--Insert Bootstrap Javascript and JQuery-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

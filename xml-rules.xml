@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="xmlstyle.css"?>
+<xml-rules>
+    <title>
+        SIX XML RULES
+    </title>
+
+    <body>
+        <p>6 important rules that must be adhered to in order to create a valid XML file:</p>
+    </body>
+
+    <rule>
+        <heading>
+            Rule 1: XML Documents Must Have a Root Element
+        </heading>
+        <body>
+            Every XML document must have a single root element that contains all other elements. This is the top-level element and defines the structure of the document.
+            Code sample:
+            <code>
+                &lt;root&gt;...&lt;/root&gt;
+            </code>
+        </body>
+    </rule>
+
+    <rule>
+        <heading>
+            Rule 2: The XML Prolog
+        </heading>
+        <body>
+            The XML prolog is optional but recommended. It provides important information like the XML version and character encoding used in the document.
+            Code sample:
+            <code>
+                &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            </code>
+        </body>
+    </rule>
+
+    <rule>
+        <heading>
+            Rule 3: All XML Elements Must Have a Closing Tag
+        </heading>
+        <body>
+            Every opening XML tag must have a corresponding closing tag, or it should be self-closing.
+            Code sample:
+            <code>
+                &lt;element&gt;Content&lt;/element&gt;
+            </code>
+            Or:
+            <code>
+                &lt;element /&gt;
+            </code>
+        </body>
+    </rule>
+
+    <rule>
+        <heading>
+            Rule 4: XML Tags are Case Sensitive
+        </heading>
+        <body>
+            XML tags are case-sensitive, meaning that &lt;Tag&gt; and &lt;tag&gt; are treated as different elements.
+            Code sample:
+            <code>
+                &lt;Example&gt;This is different from &lt;example&gt;&lt;/Example&gt;&lt;/example&gt;
+            </code>
+        </body>
+    </rule>
+
+    <rule>
+        <heading>
+            Rule 5: XML Elements Must be Properly Nested
+        </heading>
+        <body>
+            XML elements must be properly nested. For example, if you open a tag inside another tag, you must close the inner tag before closing the outer tag.
+            Code sample:
+            <code>
+                &lt;a&gt;&lt;b&gt;Content&lt;/b&gt;&lt;/a&gt;
+            </code>
+        </body>
+    </rule>
+
+    <rule>
+        <heading>
+            Rule 6: XML Attribute Values Must Always be Quoted
+        </heading>
+        <body>
+            In XML, attribute values must always be enclosed in quotation marks, either single or double.
+            Code sample:
+            <code>
+                &lt;element attribute="value"&gt;
+            </code>
+        </body>
+    </rule>
+</xml-rules>

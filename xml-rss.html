@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Syntax Rules</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="xmlstyle.css">
+</head>
+
+<body>
+
+    <!-- Search Area -->
+    <div class="collapse" id="collapseSearchBox">
+        <div>
+            <input type="text" id="searchInput" class="col-lg-11" aria-label="Search through XML and RSS content">
+            <button class="btn btn-outline-success" type="submit">SEARCH...</button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <span class="fs-2 bi bi-globe"></span>
+                ITWD6.408
+            </a>
+            <button class="btn d-inline d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSearchBox" aria-expanded="false" aria-label="Toggle search bar">
+                <span class="fs-2 bi bi-search"></span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                    <a class="nav-link" href="form.html">FORMS</a>
+                    <a class="nav-link" href="xml-rss.html">XML/RSS</a>
+                    <a class="nav-link" href="Javascript.html">JAVASCRIPT</a>
+                    <a class="nav-link" href="Research.html">RESEARCH</a>
+                </div>
+            </div>
+            <button class="btn d-none d-lg-inline" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSearchBox" aria-expanded="false" aria-label="Toggle search bar">
+                <span class="fs-2 bi bi-search"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="row mx-0" style="min-height: 80vh;">
+        <div class="col-md-2 sidebar">
+            <div class="d-grid gap-2">
+                <button id="xml-rules-btn" class="btn btn-custom" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#xml-rules" aria-expanded="false" aria-controls="xml-rules">
+                    XML RULES
+                </button>
+                <button id="rss-btn" class="btn btn-custom-warning" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#rssform" aria-expanded="false" aria-controls="rssform">
+                    RSS
+                </button>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="accordion" id="formAccordion">
+                <!-- First Accordion Item -->
+                <div class="accordion-item">
+                    <div class="collapse show" id="xml-rules" data-bs-parent="#formAccordion">
+                        <div class="card card-body" style="min-height: 70vh;">
+                            <!-- Replace iframe with a div where the XML rules will be loaded dynamically -->
+                            <div id="xml-rules-content"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Accordion Item -->
+                <div class="accordion-item">
+                    <div class="collapse" id="rssform" data-bs-parent="#formAccordion">
+                        <div class="card card-body" style="min-height: 70vh;">
+                            <h2>LOAD RSS FROM NASA WEBSITE</h2>
+                            <section id="rssFeed" class="row rss-container"></section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="min-height: 10vh; background-color: var(--navbar-color);"
+        class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex justify-content-between align-items-center w-100 mb-2">
+            <div class="d-flex align-items-center">
+                <a href="https://www.eit.ac.nz/" class="text-primary"><span class="fs-1 bi bi-facebook"></span></a>
+                <a href="https://www.eit.ac.nz/" class="ms-2"><span class="fs-1 bi bi-linkedin"></span></a>
+                <a href="https://www.eit.ac.nz/" class="ms-2"><span class="fs-1 bi bi-instagram"></span></a>
+            </div>
+            <div class="text-center mx-3">@2024 JORDAN TURNER</div>
+            <div class="text-end ms-3 fw-bold text-primary">
+                <a href="policy.html" class="text-end ms-3 fw-bold text-primary btn btn-link" style="text-decoration: none;">PRIVACY POLICY</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include jQuery and Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Function to fetch and display XML rules
+        function loadXMLRules() {
+            fetch('xml-rules.xml')
+                .then(response => response.text())
+                .then(xmlText => {
+                    let parser = new DOMParser();
+                    let xmlDoc = parser.parseFromString(xmlText, "application/xml");
+                    let rulesHtml = '';
+                    xmlDoc.querySelectorAll('rule').forEach(rule => {
+                        let heading = rule.querySelector('heading').textContent;
+                        let body = rule.querySelector('body').textContent;
+                        let code = rule.querySelector('code').textContent;
+                        rulesHtml += `<div class="rule">
+                            <h2>${heading}</h2>
+                            <p>${body}</p>
+                            <pre>${code}</pre>
+                        </div>`;
+                    });
+                    document.getElementById('xml-rules-content').innerHTML = rulesHtml;
+                });
+        }
+
+        // Call the function to load XML rules on page load
+        loadXMLRules();
+
+        // Automatically load RSS feed on page load
+        loadRSS();
+
+        // Search function for filtering both the XML rules and RSS feed items
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            let keywords = this.value.toLowerCase();
+
+            // Filter XML Rules
+            document.querySelectorAll('#xml-rules-content .rule').forEach(rule => {
+                let ruleText = rule.textContent.toLowerCase();
+                rule.style.display = ruleText.includes(keywords) ? 'block' : 'none';
+            });
+
+            // Filter RSS Feed
+            document.querySelectorAll('#rssFeed .rss-item').forEach(item => {
+                let itemText = item.textContent.toLowerCase();
+                item.style.display = itemText.includes(keywords) ? 'block' : 'none';
+            });
+        });
+    });
+
+    // Function to load RSS feed
+    function loadRSS() {
+    let proxy = 'https://corsproxy.io/?';
+    let url = "https://www.nasa.gov/rss/dyn/educationnews.rss";
+    
+    console.log("Fetching RSS feed from:", proxy + url);
+    
+    fetch(proxy + encodeURIComponent(url))
+        .then(response => {
+            console.log("Received response:", response.status);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(str => {
+            console.log("Response text received, parsing XML...");
+            
+            let parser = new window.DOMParser();
+            let rss = parser.parseFromString(str, "application/xml");
+            parseRSS(rss);
+        })
+        .catch(error => {
+            console.error("Error fetching RSS feed:", error);
+            
+            document.getElementById("rssFeed").innerHTML = `<p>Error loading RSS feed. Please try again later.</p>`;
+        });
+}
+
+
+    function parseRSS(rss) {
+        let items = rss.getElementsByTagName("item");
+        let rssContent = "";
+
+        for (let i = 0; i < items.length; i++) {
+            let nodes = items[i].children;
+            let title, pubdate, description, link;
+            for (let j = 0; j < nodes.length; j++) {
+                if (nodes[j].tagName == "title") {
+                    title = nodes[j].childNodes[0].nodeValue;
+                } else if (nodes[j].tagName == "link") {
+                    link = nodes[j].childNodes[0].nodeValue;
+                } else if (nodes[j].tagName == "description") {
+                    description = nodes[j].childNodes[0].nodeValue;
+                } else if (nodes[j].tagName == "pubDate") {
+                    pubdate = nodes[j].childNodes[0].nodeValue;
+                }
+            }
+
+            rssContent += `<div class="col-12 col-md-6 rss-item">
+                            <div style="background-color: lightgray; margin: 1em; height: 95%">
+                                <h3>${title}</h3>
+                                <p style="font-style: italic;">${pubdate}</p>
+                                <p>${description}</p>
+                                <p><a href="${link}">Read more</a></p>
+                            </div>    
+                        </div>`;
+        }
+
+        document.getElementById("rssFeed").innerHTML = rssContent;
+    }
+
+    </script>
+
+</body>
+
+</html>
